@@ -32,55 +32,53 @@ CashGo adalah aplikasi kasir (Point of Sale) berbasis mobile yang dibangun mengg
 ## Struktur Folder
 
 Kasir.V1/
-├── app/                    # Routing utama berbasis Expo Router
-│   ├── (tabs)/             # Grup rute dengan navigasi tab bawah
-│   │   ├── _layout.tsx     # Layout dan konfigurasi tab navigator
-│   │   ├── index.tsx       # Halaman utama / dashboard kasir
-│   │   ├── kasir.tsx       # Halaman transaksi kasir
-│   │   ├── produk.tsx      # Halaman manajemen produk
-│   │   ├── profil.tsx      # Halaman profil pengguna
-│   │   └── transaksi.tsx   # Halaman riwayat transaksi
+├── app/                          # Routing utama berbasis Expo Router
+│   ├── (tabs)/                    # Grup rute dengan navigasi tab bawah
+│   │   ├── _layout.tsx             # Layout dan konfigurasi tab navigator
+│   │   ├── index.tsx               # Halaman utama / dashboard kasir
+│   │   ├── kasir.tsx                # Halaman transaksi kasir
+│   │   ├── produk.tsx               # Halaman manajemen produk
+│   │   ├── profil.tsx               # Halaman profil pengguna
+│   │   └── transaksi.tsx            # Halaman riwayat transaksi
 │   │
-│   ├── auth/               # Grup rute autentikasi
-│   │   ├── _layout.tsx     # Layout untuk halaman auth
-│   │   ├── customer.tsx    # Halaman terkait data customer
-│   │   ├── diagram.tsx     # Halaman visualisasi data
-│   │   ├── draft.tsx       # Halaman draft transaksi
-│   │   ├── index.tsx       # Halaman login / register
-│   │   └── modal.tsx       # Modal pendukung autentikasi
+│   ├── auth/                      # Grup rute autentikasi
+│   │   ├── _layout.tsx             # Layout untuk halaman auth
+│   │   ├── customer.tsx             # Halaman terkait data customer
+│   │   ├── diagram.tsx              # Halaman visualisasi data
+│   │   ├── draft.tsx                # Halaman draft transaksi
+│   │   ├── index.tsx                # Halaman login / register
+│   │   └── modal.tsx                # Modal pendukung autentikasi
 │   │
-│   └── assets/             # Gambar, icon, dan aset statis
+│   └── assets/                    # Gambar, icon, dan aset statis
 │       ├── icon/
 │       └── images/
 │
-├── komponen/               # Komponen UI yang dapat dipakai ulang
-├── konstanta/              # Konstanta (warna, ukuran, konfigurasi, dll)
-├── hooks/                  # Custom React hooks
-├── lib/                    # Fungsi utilitas dan konfigurasi service
-│   └── supabase.ts         # Inisialisasi client Supabase
+├── komponen/                    # Komponen UI yang dapat dipakai ulang
+├── konstanta/                     # Konstanta (warna, ukuran, konfigurasi, dll)
+├── hooks/                          # Custom React hooks
+├── lib/                            # Fungsi utilitas dan konfigurasi service
+│   └── supabase.ts                  # Inisialisasi client Supabase
 │
-├── screen/                 # Komponen layar tambahan (non-route)
+├── screen/                        # Komponen layar tambahan (non-route)
 │   ├── customerScreen.tsx
 │   ├── diagramScreen.tsx
 │   └── draftScreen.tsx
 │
-├── scripts/                # Script pendukung pengembangan/pembangunan
-├── node_modules/           # Dependencies (otomatis, tidak di-commit)
+├── scripts/                       # Script pendukung pengembangan/pembangunan
+├── node_modules/                  # Dependencies (otomatis, tidak di-commit)
 │
-├── .env                    # Variabel lingkungan (tidak di-commit)
+├── .env                             # Variabel lingkungan (tidak di-commit)
 ├── .gitignore
-├── app.json                # Konfigurasi Expo
-├── eas.json                # Konfigurasi EAS Build
-├── eslint.config.js        # Konfigurasi ESLint
-├── expo-env.d.ts           # Type deklarasi Expo
+├── app.json                         # Konfigurasi Expo
+├── eas.json                         # Konfigurasi EAS Build
+├── eslint.config.js                  # Konfigurasi ESLint
+├── expo-env.d.ts                     # Type deklarasi Expo
 ├── package.json
 ├── package-lock.json
-├── tsconfig.json           # Konfigurasi TypeScript
-├── AGENTS.md               # Dokumentasi/instruksi untuk AI agent
-├── CLAUDE.md               # Dokumentasi/instruksi untuk Claude
+├── tsconfig.json                     # Konfigurasi TypeScript
+├── AGENTS.md                         # Dokumentasi/instruksi untuk AI agent
+├── CLAUDE.md                         # Dokumentasi/instruksi untuk Claude
 └── README.md
-
-Catatan: Struktur folder di atas mengikuti konvensi Expo Router, di mana setiap file di dalam folder `app/` otomatis menjadi sebuah route atau halaman. Folder `screen/` digunakan untuk menyimpan komponen layar yang dipakai di dalam route, namun bukan merupakan route itu sendiri.
 
 ## Persiapan dan Instalasi
 
