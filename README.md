@@ -1,50 +1,155 @@
-# Welcome to your Expo app 👋
+## CashGo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+CashGo adalah aplikasi kasir (Point of Sale) berbasis mobile yang dibangun menggunakan React Native dengan Expo, serta menggunakan Supabase sebagai backend dan database. Aplikasi ini ditujukan untuk membantu pelaku usaha dalam mengelola transaksi penjualan, data produk, dan laporan secara langsung dari perangkat mobile.
 
-## Get started
+## Fitur Utama
 
-1. Install dependencies
+- Autentikasi pengguna menggunakan Supabase Auth
+- Pencatatan transaksi kasir secara real-time
+- Pencatatan stock produk secara real-time
+- Fitur diskon dengan persen (%)
+- Riwayat transaksi
+- Sistem cetak struck
+- Sistem Draft
+- Manajemen data produk
+- Manajemen data customer
+- Export data pelanggan (csv)
+- Draft transaksi yang belum diselesaikan
+- Visualisasi data penjualan dalam bentuk diagram dan persentase kenaikan/turun
+- Profil
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+| Kategori          | Teknologi               |
+|-------------------|-------------------------|
+| Framework         | React Native + Expo     |
+| Routing           | Expo Router             |
+| Backend & Database| Supabase (PostgreSQL)   |
+| Autentikasi       | Supabase Auth           |
+| Bahasa            | TypeScript              |
+| Build Service     | EAS (Expo Application Services) |
 
-   ```bash
-   npx expo start
-   ```
+## Struktur Folder
 
-In the output, you'll find options to open the app in a
+Kasir.V1/
+├── app/                    # Routing utama berbasis Expo Router
+│   ├── (tabs)/             # Grup rute dengan navigasi tab bawah
+│   │   ├── _layout.tsx     # Layout dan konfigurasi tab navigator
+│   │   ├── index.tsx       # Halaman utama / dashboard kasir
+│   │   ├── kasir.tsx       # Halaman transaksi kasir
+│   │   ├── produk.tsx      # Halaman manajemen produk
+│   │   ├── profil.tsx      # Halaman profil pengguna
+│   │   └── transaksi.tsx   # Halaman riwayat transaksi
+│   │
+│   ├── auth/               # Grup rute autentikasi
+│   │   ├── _layout.tsx     # Layout untuk halaman auth
+│   │   ├── customer.tsx    # Halaman terkait data customer
+│   │   ├── diagram.tsx     # Halaman visualisasi data
+│   │   ├── draft.tsx       # Halaman draft transaksi
+│   │   ├── index.tsx       # Halaman login / register
+│   │   └── modal.tsx       # Modal pendukung autentikasi
+│   │
+│   └── assets/             # Gambar, icon, dan aset statis
+│       ├── icon/
+│       └── images/
+│
+├── komponen/               # Komponen UI yang dapat dipakai ulang
+├── konstanta/              # Konstanta (warna, ukuran, konfigurasi, dll)
+├── hooks/                  # Custom React hooks
+├── lib/                    # Fungsi utilitas dan konfigurasi service
+│   └── supabase.ts         # Inisialisasi client Supabase
+│
+├── screen/                 # Komponen layar tambahan (non-route)
+│   ├── customerScreen.tsx
+│   ├── diagramScreen.tsx
+│   └── draftScreen.tsx
+│
+├── scripts/                # Script pendukung pengembangan/pembangunan
+├── node_modules/           # Dependencies (otomatis, tidak di-commit)
+│
+├── .env                    # Variabel lingkungan (tidak di-commit)
+├── .gitignore
+├── app.json                # Konfigurasi Expo
+├── eas.json                # Konfigurasi EAS Build
+├── eslint.config.js        # Konfigurasi ESLint
+├── expo-env.d.ts           # Type deklarasi Expo
+├── package.json
+├── package-lock.json
+├── tsconfig.json           # Konfigurasi TypeScript
+├── AGENTS.md               # Dokumentasi/instruksi untuk AI agent
+├── CLAUDE.md               # Dokumentasi/instruksi untuk Claude
+└── README.md
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Catatan: Struktur folder di atas mengikuti konvensi Expo Router, di mana setiap file di dalam folder `app/` otomatis menjadi sebuah route atau halaman. Folder `screen/` digunakan untuk menyimpan komponen layar yang dipakai di dalam route, namun bukan merupakan route itu sendiri.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Persiapan dan Instalasi
 
-## Get a fresh project
-
-When you're ready, run:
+### 1. Clone Repository
 
 ```bash
-npm run reset-project
+git clone https://github.com/Ahmadsanusi18/mobile-project-PPM2-kasir-CashGo.git
+cd mobile-project-PPM2-kasir-CashGo
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Install Dependencies
 
-## Learn more
+```bash
+npm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 3. Konfigurasi Environment Variables
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Buat file `.env` di root project, lalu isi dengan kredensial Supabase:
 
-## Join the community
+```env
+EXPO_PUBLIC_SUPABASE_URL=https://xxxxxxxxxxxx.supabase.co
+EXPO_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
 
-Join our community of developers creating universal apps.
+Kredensial dapat diperoleh dari Project Settings > API di dashboard Supabase.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 4. Jalankan Aplikasi
+
+```bash
+npx expo start
+```
+
+Setelah itu, scan QR code menggunakan aplikasi Expo Go (Android/iOS), atau jalankan di emulator:
+
+```bash
+npx expo start --android
+npx expo start --ios
+```
+
+## Skema Database (Supabase)
+
+| Tabel              | Deskripsi                                   |
+|--------------------|---------------------------------------------|
+| users              | Data pengguna/akun kasir                    |
+| products           | Data produk (nama, harga, stok, kategori)   |
+| transactions       | Data transaksi penjualan                    |
+| transaction_items  | Detail item dalam setiap transaksi          |
+| customers          | Data pelanggan                              |
+
+Skema dapat disesuaikan dan dikelola melalui Supabase Table Editor atau migrasi SQL.
+
+## Build untuk Produksi
+
+Aplikasi ini menggunakan EAS Build untuk build native Android/iOS:
+
+```bash
+npm install -g eas-cli
+eas login
+eas build:configure
+eas build --platform android
+```
+
+## Kontribusi
+
+Kontribusi terbuka untuk siapa saja. Silakan fork repository ini, buat branch baru, dan ajukan pull request.
+
+```bash
+git checkout -b fitur-baru
+git commit -m "Menambahkan fitur baru"
+git push origin fitur-baru
+```
