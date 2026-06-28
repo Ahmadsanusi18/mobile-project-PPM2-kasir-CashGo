@@ -30,7 +30,7 @@ CashGo adalah aplikasi kasir (Point of Sale) berbasis mobile yang dibangun mengg
 | Build Service     | EAS (Expo Application Services) |
 
 ## Struktur Folder
-
+```
 Kasir.V1/
 ├── app/                          # Routing utama berbasis Expo Router
 │   ├── (tabs)/                    # Grup rute dengan navigasi tab bawah
@@ -80,6 +80,7 @@ Kasir.V1/
 ├── CLAUDE.md                         # Dokumentasi/instruksi untuk Claude
 └── README.md
 
+```
 ## Persiapan dan Instalasi
 
 ### 1. Clone Repository
